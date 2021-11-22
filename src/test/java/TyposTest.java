@@ -1,15 +1,17 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TyposTest extends BaseTest{
+import java.util.List;
+
+public class TyposTest extends BaseTest {
     @Test
-    public  void typos() {
+    public void typos() {
         driver.get("http://the-internet.herokuapp.com/typos");
-        WebElement typo = driver.findElement(By.tagName("p"));
-        // в процессе
+        List<WebElement> typo = driver.findElements(By.tagName("p"));
 
-
-
+        Assert.assertEquals(typo.get(0).getText(), "This example demonstrates a typo being introduced. It does it randomly on each page load.", "Error on the first 'p'");
+        Assert.assertEquals(typo.get(1).getText(), "Sometimes you'll see a typo, other times you wont.", "Error on the second 'p'");
     }
 }

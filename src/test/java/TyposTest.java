@@ -7,7 +7,7 @@ public class TyposTest extends BaseTest{
     public  void typos() {
         driver.get("http://the-internet.herokuapp.com/typos");
         WebElement typo = driver.findElement(By.tagName("p"));
-
+        // в процессе
 
 
 
